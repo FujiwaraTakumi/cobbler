@@ -690,6 +690,11 @@ class TFTPGen(object):
         hkopts = utils.dict_to_string(kopts)
         append_line = "%s %s" % (append_line, hkopts)
 
+        """
+        ##
+        ## delete default parameters
+        ##
+        
         # automatic installation file path rewriting (get URLs for local files)
         if autoinstall_path:
 
@@ -772,6 +777,7 @@ class TFTPGen(object):
             elif distro.breed == "powerkvm":
                 append_line += " kssendmac"
                 append_line = "%s kvmp.inst.auto=%s" % (append_line, autoinstall_path)
+        """
 
         if distro is not None and (distro.breed in ["debian", "ubuntu"]):
             # Hostname is required as a parameter, the one in the preseed is
