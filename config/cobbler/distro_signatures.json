@@ -2005,6 +2005,10 @@
         "boot_files": []
       }
     },
+    "uos": {
+      "uos20desktop": {},
+      "uos20server": {}
+    },
     "vmware": {
       "esx4": {
         "signatures": [
