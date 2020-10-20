@@ -1,5 +1,41 @@
 {
   "breeds": {
+    "uos": {
+      "v20": {
+      },
+      "Eagle": {
+        "signatures": [
+          "dists",
+          ".disk"
+        ],
+        "version_file": "info",
+        "version_file_regex": "Uos Livecd \"Eagle\" - Snapshot arm64 (20191215)",
+        "kernel_arch": "linux-headers-(.*)\\.deb",
+        "kernel_arch_regex": null,
+        "supported_arches": [
+          "x86_64",
+          "amd64",
+          "ppc64el",
+          "arm64",
+          "mips64el"
+        ],
+        "supported_repo_breeds": [
+          "apt"
+        ],
+        "kernel_file": "(linux|vmlinuz(.*))",
+        "initrd_file": "initrd($|.gz$|.lz$)",
+        "isolinux_ok": false,
+        "default_autoinstall": "sample.seed",
+        "kernel_options": "",
+        "kernel_options_post": "",
+        "boot_files": [],
+        "boot_loaders": {
+          "ppc64el": [
+            "grub"
+          ]
+        }
+      }
+    },
     "redhat": {
       "rhel4": {
         "signatures": [
@@ -2004,10 +2040,6 @@
         "kernel_options_post": "",
         "boot_files": []
       }
-    },
-    "uos": {
-      "uos20desktop": {},
-      "uos20server": {}
     },
     "vmware": {
       "esx4": {
