@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+#
 # Only add standard python modules here. When running under a virtualenv other modules are not
 # available at this point.
 import inspect
@@ -12,6 +14,10 @@ script_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfra
 if script_path not in sys.path:
     sys.path.insert(0, script_path)
     sys.path.insert(0, os.path.join(script_path, 'cobbler_web'))
+
+print(script_path)
+print(os.path.join(script_path, 'cobbler_web'))
+print(os.path.join(script_path, 'templates'))
 
 
 def application(environ, start_response):
