@@ -30,6 +30,7 @@ import sys
 import time
 import traceback
 import xmlrpc.client
+import pprint
 
 from cobbler import field_info
 from cobbler.items import package, system, image, profile, repo, mgmtclass, distro, file
@@ -318,6 +319,9 @@ class CobblerCLI(object):
         self.shared_secret = utils.get_shared_secret()
         self.args = cliargs
 
+        # print pretty
+        self.pp = pprint.PrettyPrinter(indent=2)
+
     def start_task(self, name, options):
         """
         Start an asynchronous task in the background.
@@ -516,6 +520,8 @@ class CobblerCLI(object):
         elif object_action == "reload":
             self.parser.add_option("--filename", dest="filename", help="filename to load data from")
         (options, args) = self.parser.parse_args(self.args)
+        # print options
+        print("Options:\n{}\n".format(options))
 
         # the first three don't require a name
         if object_action == "report":
@@ -602,6 +608,9 @@ class CobblerCLI(object):
         if task_id != -1:
             self.print_task(task_id)
             self.follow_task(task_id)
+
+    def check_object_command_param(self, options, field):
+        pass
 
     def direct_command(self, action_name):
         """
@@ -704,6 +713,8 @@ class CobblerCLI(object):
             if options.path and "rsync://" not in options.path:
                 # convert relative path to absolute path
                 options.path = os.path.abspath(options.path)
+            if self.direct_command_import_check(options):
+                return False
             task_id = self.start_task("import", options)
         elif action_name == "reposync":
             self.parser.add_option("--only", dest="only", help="update only this repository name")
@@ -777,6 +788,9 @@ class CobblerCLI(object):
             self.follow_task(task_id)
 
         return True
+
+    def check_direct_command_param(self, options, field):
+        pass
 
     def print_task(self, task_id):
         """

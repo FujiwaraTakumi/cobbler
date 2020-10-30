@@ -37,7 +37,7 @@ FIELDS = [
     ['uid', "", 0, "", False, "", 0, "str"],
 
     # editable in UI
-    ['arch', 'x86_64', 0, "Architecture", True, "", utils.get_valid_archs(), "str"],
+    ['arch', '', 0, "Architecture", True, "", utils.get_valid_archs(), "str"],
     ['autoinstall', '', 0, "Automatic installation file", True, "Path to autoinst/answer file template", 0, "str"],
     ['breed', 'redhat', 0, "Breed", True, "", utils.get_valid_breeds(), "str"],
     ['comment', '', 0, "Comment", True, "Free form text description", 0, "str"],

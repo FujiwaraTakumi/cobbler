@@ -37,7 +37,7 @@ FIELDS = [
     ["uid", "", 0, "", False, "", 0, "str"],
 
     # editable in UI
-    ["arch", 'x86_64', 0, "Architecture", True, "", utils.get_valid_archs(), "str"],
+    ["arch", '', 0, "Architecture", True, "", utils.get_valid_archs(), "str"],
     ["autoinstall_meta", {}, 0, "Automatic Installation Template Metadata", True, "Ex: dog=fang agent=86", 0, "dict"],
     ["boot_files", {}, 0, "TFTP Boot Files", True, "Files copied into tftpboot beyond the kernel/initrd", 0, "list"],
     ["boot_loader", "<<inherit>>", 0, "Boot loader", True, "Network installation boot loader", utils.get_supported_system_boot_loaders(), "str"],
