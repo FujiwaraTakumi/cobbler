@@ -1398,14 +1398,20 @@ def set_arch(self, arch, repo=False):
     :param repo: If the object where the arch will be set is a repo or not.
     :type repo: bool
     """
-    if not arch or arch == "standard" or arch == "x86":
+    # None if not provided
+    if not arch:
+        arch = None
+
+    if arch == "standard" or arch == "x86":
         arch = "i386"
 
-    if repo:
-        valids = ["i386", "x86_64", "ia64", "ppc", "ppc64", "ppc64le", "ppc64el", "s390", "s390x", "noarch", "src",
-                  "arm", "aarch64"]
-    else:
-        valids = ["i386", "x86_64", "ia64", "ppc", "ppc64", "ppc64le", "ppc64el", "s390", "s390x", "arm", "aarch64"]
+    # if repo:
+    #     valids = ["i386", "x86_64", "ia64", "ppc", "ppc64", "ppc64le", "ppc64el", "s390", "s390x", "noarch", "src",
+    #               "arm", "aarch64"]
+    # else:
+    #     valids = ["i386", "x86_64", "ia64", "ppc", "ppc64", "ppc64le", "ppc64el", "s390", "s390x", "arm", "aarch64"]
+
+    valids = get_valid_archs()
 
     if arch in valids:
         self.arch = arch
