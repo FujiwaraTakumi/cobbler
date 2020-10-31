@@ -87,9 +87,8 @@ class CobblerSync(object):
         if not os.path.exists(self.bootloc):
             utils.die(self.logger, "cannot find directory: %s" % self.bootloc)
 
-        self.logger.info("running pre-sync triggers")
-
         # run pre-triggers...
+        self.logger.info("\nrunning pre-sync triggers")
         utils.run_triggers(self.api, None, "/var/lib/cobbler/triggers/sync/pre/*")
 
         self.distros = self.collection_mgr.distros()
@@ -99,7 +98,7 @@ class CobblerSync(object):
         self.repos = self.collection_mgr.repos()
 
         # execute the core of the sync operation
-        self.logger.info("cleaning trees")
+        self.logger.info("\ncleaning trees")
         self.clean_trees()
 
         # Have the tftpd module handle copying bootloaders, distros, images, and all_system_files
@@ -109,7 +108,7 @@ class CobblerSync(object):
         # directory that's no longer mounted)
         for d in self.distros:
             try:
-                self.logger.info("copying files for distro: %s" % d.name)
+                self.logger.info("\ncopying files for distro: %s" % d.name)
                 self.tftpgen.copy_single_distro_files(d, self.settings.webdir, True)
                 self.tftpgen.write_templates(d, write_file=True)
             except CX as e:
@@ -129,7 +128,7 @@ class CobblerSync(object):
             # copy in boot_files
             self.tftpd.write_boot_files()
 
-        self.logger.info("cleaning link caches")
+        self.logger.info("\ncleaning link caches")
         self.clean_link_cache()
 
         if self.settings.manage_rsync:
@@ -137,7 +136,7 @@ class CobblerSync(object):
             self.rsync_gen()
 
         # run post-triggers
-        self.logger.info("running post-sync triggers")
+        self.logger.info("\nrunning post-sync triggers")
         utils.run_triggers(self.api, None, "/var/lib/cobbler/triggers/sync/post/*", logger=self.logger)
         utils.run_triggers(self.api, None, "/var/lib/cobbler/triggers/change/*", logger=self.logger)
 

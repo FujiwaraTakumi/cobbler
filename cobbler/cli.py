@@ -36,8 +36,7 @@ from cobbler import field_info
 from cobbler.items import package, system, image, profile, repo, mgmtclass, distro, file
 from cobbler import settings
 from cobbler import utils
-from cobbler.cexceptions import NotImplementedException
-
+from cobbler.cexceptions import NotImplementedException, CobblerException
 
 OBJECT_ACTIONS_MAP = {
     "distro": "add copy edit find list remove rename report".split(" "),
@@ -438,6 +437,7 @@ class CobblerCLI(object):
 
             else:
                 self.print_help()
+
         except xmlrpc.client.Fault as err:
             if err.faultString.find("cobbler.cexceptions.CX") != -1:
                 print(self.cleanup_fault_string(err.faultString))
@@ -523,6 +523,7 @@ class CobblerCLI(object):
         # print options
         print("Options:\n{}\n".format(options))
 
+        data = None
         # the first three don't require a name
         if object_action == "report":
             if options.name is not None:
@@ -600,17 +601,14 @@ class CobblerCLI(object):
                 else:
                     print("Signatures were successfully loaded")
             else:
-                raise NotImplementedException()
+                raise NotImplementedException(CobblerException("unknown object action."))
         else:
-            raise NotImplementedException()
+            raise NotImplementedException(CobblerException("unknown object action."))
 
         # FIXME: add tail/polling code here
         if task_id != -1:
             self.print_task(task_id)
             self.follow_task(task_id)
-
-    def check_object_command_param(self, options, field):
-        pass
 
     def direct_command(self, action_name):
         """
@@ -713,8 +711,6 @@ class CobblerCLI(object):
             if options.path and "rsync://" not in options.path:
                 # convert relative path to absolute path
                 options.path = os.path.abspath(options.path)
-            if self.direct_command_import_check(options):
-                return False
             task_id = self.start_task("import", options)
         elif action_name == "reposync":
             self.parser.add_option("--only", dest="only", help="update only this repository name")
@@ -789,9 +785,6 @@ class CobblerCLI(object):
 
         return True
 
-    def check_direct_command_param(self, options, field):
-        pass
-
     def print_task(self, task_id):
         """
         Pretty print a task executed on the server. This prints to stdout.
@@ -802,7 +795,7 @@ class CobblerCLI(object):
         events = self.remote.get_events()
         (etime, name, status, who_viewed) = events[task_id]
         atime = time.asctime(time.localtime(etime))
-        print("task started (id=%s, time=%s)" % (name, atime))
+        print("task started (id=%s, time=%s)\n" % (name, atime))
 
     def follow_task(self, task_id):
         """
@@ -822,10 +815,10 @@ class CobblerCLI(object):
             where = file.tell()
             line = file.readline()
             if line.find("### TASK COMPLETE ###") != -1:
-                print("*** TASK COMPLETE ***")
+                print("\n*** TASK COMPLETE ***")
                 return 0
             if line.find("### TASK FAILED ###") != -1:
-                print("!!! TASK FAILED !!!")
+                print("\n!!! TASK FAILED !!!")
                 return 1
             if not line:
                 time.sleep(1)

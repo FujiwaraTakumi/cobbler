@@ -158,10 +158,10 @@ class InTftpdManager(object):
         :param verbose: Whether the tftp server should log this verbose or not.
         """
         self.tftpgen.verbose = verbose
-        self.logger.info("copying bootloaders")
+        self.logger.info("\ncopying bootloaders")
         self.tftpgen.copy_bootloaders(self.bootloc)
 
-        self.logger.info("copying distros to tftpboot")
+        self.logger.info("\ncopying distros to tftpboot")
 
         # Adding in the exception handling to not blow up if files have been moved (or the path references an NFS
         # directory that's no longer mounted)

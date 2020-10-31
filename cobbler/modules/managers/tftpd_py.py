@@ -90,7 +90,7 @@ class TftpdPyManager(object):
 
         :param verbose: This parameter is unused.
         """
-        self.logger.info("copying bootloaders")
+        self.logger.info("\ncopying bootloaders")
         tftpgen.TFTPGen(self.collection_mgr, self.logger).copy_bootloaders(self.bootloc)
 
     def update_netboot(self, name):
