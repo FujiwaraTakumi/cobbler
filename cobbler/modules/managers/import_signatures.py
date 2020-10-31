@@ -104,6 +104,17 @@ class ImportSignatureManager(object):
         self.signature = None
         self.found_repos = {}
 
+        self.breed = None
+        self.os_version = None
+        self.path = None
+        self.rootdir = None
+        self.pkgdir = None
+
+        self.arch = None
+        self.name = None
+        self.autoinstall_file = None
+        self.network_root = None
+
     # required function for import modules
     def what(self):
         """

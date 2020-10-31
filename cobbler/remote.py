@@ -293,7 +293,7 @@ class CobblerXMLRPCInterface(object):
         :rtype: str
         """
         def runner(self):
-            self.remote.api.import_tree(
+            result = self.remote.api.import_tree(
                 self.options.get("path", None),
                 self.options.get("name", None),
                 self.options.get("available_as", None),
@@ -304,6 +304,8 @@ class CobblerXMLRPCInterface(object):
                 self.options.get("os_version", None),
                 self.logger
             )
+            if not result:
+                raise CX("internal error, import %s fatal." % self.options.get("name", None))
         return self.__start_task(runner, token, "import", "Media import", options)
 
     def background_reposync(self, options, token):

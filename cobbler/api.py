@@ -1405,7 +1405,8 @@ class CobblerAPI(object):
         :param os_version:
         :param logger: The logger to audit the removal with.
         """
-        self.log("import_tree", [mirror_url, mirror_name, network_root, autoinstall_file, rsync_flags])
+        self.log("import_tree", [mirror_url, mirror_name, network_root, autoinstall_file, rsync_flags,
+                                 arch, breed, os_version, logger])
 
         # Both --path and --name are required arguments.
         if mirror_url is None or not mirror_url:
@@ -1413,6 +1414,18 @@ class CobblerAPI(object):
             return False
         if mirror_name is None or not mirror_name:
             self.log("import failed.  no --name specified")
+            return False
+        if arch is None or not arch:
+            self.log("--arch is required.")
+            return False
+        if arch not in utils.get_valid_archs():
+            self.log("invalid arch: %s" % arch)
+            return False
+        if breed is None or not breed:
+            self.log("--breed is required.")
+            return False
+        if os_version is None or not os_version:
+            self.log("--os-version is required.")
             return False
 
         path = os.path.normpath("%s/distro_mirror/%s" % (self.settings().webdir, mirror_name))
@@ -1488,6 +1501,7 @@ class CobblerAPI(object):
         import_module = self.get_module_by_name("managers.import_signatures")\
             .get_import_manager(self._collection_mgr, logger)
         import_module.run(path, mirror_name, network_root, autoinstall_file, arch, breed, os_version)
+        return True
 
     # ==========================================================================
 
