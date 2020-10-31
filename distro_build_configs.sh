@@ -6,10 +6,10 @@ export COMPLETION_PATH="/usr/share/bash-completion/completions"
 export STATEPATH="/tmp/cobbler_settings/devinstall"
 
 export HTTPD_SERVICE="apache2.service"
-export WEBROOT="/srv/www";
+export WEBROOT="/var/www";
 export WEBCONFIG="/etc/apache2/vhosts.d";
 export WEBROOTCONFIG="/etc/apache2";
-export TFTPROOT="/srv/tftpboot"
+export TFTPROOT="/var/lib/tftpboot"
 export DEFAULTPATH="etc/sysconfig"
 
 # First parameter is DISTRO if provided

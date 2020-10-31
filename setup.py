@@ -41,8 +41,8 @@ statepath = os.environ.get('STATEPATH', "/tmp/cobbler_settings/devinstall")
 http_user = os.environ.get('HTTP_USER', "wwwrun")
 httpd_service = os.environ.get('HTTPD_SERVICE', "apache2.service")
 webconfig = os.environ.get('WEBCONFIG', "/etc/apache2/vhosts.d")
-webroot = os.environ.get('WEBROOT', "/srv/www")
-tftproot = os.environ.get('TFTPROOT', "/srv/tftpboot")
+webroot = os.environ.get('WEBROOT', "/var/www")
+tftproot = os.environ.get('TFTPROOT', "/var/lib/tftpboot")
 
 webcontent = webroot + "/cobbler_webui_content"
 webimages = webcontent + "/images"
