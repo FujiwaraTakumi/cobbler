@@ -72,3 +72,10 @@ class NotImplementedException(CobblerException):
     On the command line interface not everything is always implemented. This is the exception which stated this.
     """
     pass
+
+
+class ParamInvalidException(CobblerException):
+    """
+    input invalid command line by user.
+    """
+    pass

@@ -85,6 +85,16 @@ class Distro(item.Item):
         self.remote_grub_kernel = ""
         self.remote_grub_initrd = ""
 
+        self.kernel = None
+        self.initrd = None
+        self.arch = None
+        self.tree_build_time = None
+        self.remote_boot_kernel = None
+        self.boot_loader = None
+        self.remote_boot_initrd = None
+        self.supported_boot_loaders = None
+        self.redhat_management_key = None
+
     #
     # override some base class methods first (item.Item)
     #
@@ -119,9 +129,11 @@ class Distro(item.Item):
         if self.name is None:
             raise CX("name is required")
         if self.kernel is None:
-            raise CX("Error with distro %s - kernel is required" % (self.name))
+            raise CX("Error with distro %s - kernel is required" % self.name)
         if self.initrd is None:
-            raise CX("Error with distro %s - initrd is required" % (self.name))
+            raise CX("Error with distro %s - initrd is required" % self.name)
+        if self.arch is None:
+            raise CX("Error with distro %s - arch is required" % self.name)
 
         # self.remote_grub_kernel has to be set in set_remote_boot_kernel and here
         # in case the distro is read from json file (setters are not called).

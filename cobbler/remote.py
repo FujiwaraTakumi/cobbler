@@ -3448,6 +3448,9 @@ class ProxiedXMLRPCInterface(object):
 
         :param api: The api object to resolve information with
         :param proxy_class: The class which proxies the requests.
+
+        CobblerAPI
+        CobblerXMLRPCInterface
         """
         self.proxied = proxy_class(api)
         self.logger = self.proxied.api.logger
