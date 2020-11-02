@@ -11,7 +11,6 @@
         "kernel_arch": "linux-headers-(.*)\\.deb",
         "kernel_arch_regex": null,
         "supported_arches": [
-          "aarch64",
           "arm64",
           "i386",
           "amd64",
@@ -20,8 +19,8 @@
         "supported_repo_breeds": [
           "apt"
         ],
-        "kernel_file": "(linux|vmlinuz(.*))",
-        "initrd_file": "initrd($|.gz$|.lz$)",
+        "kernel_file": "vmlinuz(.*)",
+        "initrd_file": "initrd(.*)\\.img",
         "isolinux_ok": false,
         "default_autoinstall": "sample.seed",
         "kernel_options": "",
@@ -45,7 +44,6 @@
         "kernel_arch": "linux-headers-(.*)\\.deb",
         "kernel_arch_regex": null,
         "supported_arches": [
-          "aarch64",
           "arm64",
           "i386",
           "amd64",
@@ -54,8 +52,8 @@
         "supported_repo_breeds": [
           "apt"
         ],
-        "kernel_file": "(linux|vmlinuz(.*))",
-        "initrd_file": "initrd($|.gz$|.lz$)",
+        "kernel_file": "Image(.*)",
+        "initrd_file": "initrd(.*)\\.img",
         "isolinux_ok": false,
         "default_autoinstall": "sample.seed",
         "kernel_options": "",

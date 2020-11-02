@@ -3461,7 +3461,7 @@ class ProxiedXMLRPCInterface(object):
 
         :param method: The method to register.
         :param params: The params for the method.
-        :param rest: This gets dropped curently.
+        :param rest: This gets dropped currently.
         :return: The result of the method.
         """
         # ToDo: Drop rest param

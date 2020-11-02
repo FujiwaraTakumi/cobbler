@@ -47,7 +47,7 @@ INFO = 10
 DEBUG = 5
 
 # FIXME: add --quiet depending on if not --verbose?
-RSYNC_CMD = "rsync -a %s '%s' %s --progress"
+RSYNC_CMD = "rsync -a %s '%s' %s"
 
 # notes on locking:
 # CobblerAPI is a singleton object
@@ -1449,7 +1449,7 @@ class CobblerAPI(object):
 
         if mirror_url.startswith("http://") or mirror_url.startswith("https://") or mirror_url.startswith("ftp://")\
                 or mirror_url.startswith("nfs://"):
-            # HTTP mirrors are kind of primative. rsync is better. That's why this isn't documented in the manpage and
+            # HTTP mirrors are kind of primitive. rsync is better. That's why this isn't documented in the manpage and
             # we don't support them.
             # TODO: how about adding recursive FTP as an option?
             self.log("unsupported protocol")
@@ -1500,6 +1500,7 @@ class CobblerAPI(object):
 
         import_module = self.get_module_by_name("managers.import_signatures")\
             .get_import_manager(self._collection_mgr, logger)
+        # ImportSignatureManager.run(x,x,x...)
         import_module.run(path, mirror_name, network_root, autoinstall_file, arch, breed, os_version)
         return True
 
