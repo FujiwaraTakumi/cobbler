@@ -403,9 +403,7 @@ class ImportSignatureManager(object):
 
             # see if the profile name is already used, if so, skip it and
             # do not modify the existing profile
-
             existing_profile = self.profiles.find(name=name)
-
             if existing_profile is None:
                 self.logger.info("creating new profile: %s" % name)
                 new_profile = profile.Profile(self.collection_mgr)

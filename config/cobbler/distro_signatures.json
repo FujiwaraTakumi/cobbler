@@ -11,7 +11,7 @@
         "kernel_arch": "linux-headers-(.*)\\.deb",
         "kernel_arch_regex": null,
         "supported_arches": [
-          "arm64",
+          "aarch64",
           "i386",
           "amd64",
           "mips64el"
@@ -44,7 +44,7 @@
         "kernel_arch": "linux-headers-(.*)\\.deb",
         "kernel_arch_regex": null,
         "supported_arches": [
-          "arm64",
+          "aarch64",
           "i386",
           "amd64",
           "mips64el"
