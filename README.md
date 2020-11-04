@@ -23,3 +23,23 @@ configuration.
 If you want to contribute you may find more information under [CONTRIBUTING.md](CONTRIBUTING.md).
 
 The documentation can be found at [Readthedocs](https://cobbler.readthedocs.io)
+
+
+## Customized
+
+### Install
+
+```shell script
+python3 setup.py install
+
+python3 setup.py install --record installed.txt
+
+```
+
+### Uninstall
+
+```shell script
+
+# cat installed.txt | xargs rm -rf
+
+```
