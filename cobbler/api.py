@@ -138,6 +138,10 @@ class CobblerAPI(object):
             self.logger.debug("API handle initialized")
             self.perms_ok = True
 
+            self.dhcp = None
+            self.dns = None
+            self.tftpd = None
+
     # ==========================================================
 
     def is_selinux_enabled(self):

@@ -62,9 +62,11 @@ class TFTPGen(object):
         # unfortunately using shutils copy_tree the dest directory must not exist,
         # but we must not delete an already partly synced /srv/tftp dir here.
         # rsync is very convenient here, being very fast on an already copied folder
-        utils.subprocess_call(self.logger, ["rsync", "-rpt", "--copy-links", "--exclude=.cobbler_postun_cleanup", "{src}/".format(src=src), dest], shell=False)
+        utils.subprocess_call(self.logger, ["rsync", "-rpt", "--copy-links", "--exclude=.cobbler_postun_cleanup",
+                                            "{src}/".format(src=src), dest], shell=False)
         src = self.settings.grubconfig_dir
-        utils.subprocess_call(self.logger, ["rsync", "-rpt", "--copy-links", "--exclude=README.grubconfig", "{src}/".format(src=src), dest], shell=False)
+        utils.subprocess_call(self.logger, ["rsync", "-rpt", "--copy-links", "--exclude=README.grubconfig",
+                                            "{src}/".format(src=src), dest], shell=False)
 
     def copy_images(self):
         """
@@ -86,7 +88,7 @@ class TFTPGen(object):
         :type   d_file:     str
         :param  distro_dir: directory (typically in {www,tftp}/images) where to copy the file
         :type   distro_dir: str
-        :param  symlink_ok: whethere it is ok to symlink the file. Typically false in case the file
+        :param  symlink_ok: whether it is ok to symlink the file. Typically false in case the file
                             is used by daemons run in chroot environments (tftpd,..)
         :type   symlink_ok: bool
 
@@ -638,7 +640,7 @@ class TFTPGen(object):
         :type arch: str
         :param autoinstall_path: The autoinstallation path. Normally this will be a URL because you want to pass a link
                                  to an autoyast, preseed or kickstart file.
-        :return: The generated kernal line options.
+        :return: The generated kernel line options.
         :rtype: str
         """
 
@@ -670,7 +672,7 @@ class TFTPGen(object):
         utils.kopts_overwrite(system, distro, kopts, self.settings)
 
         # since network needs to be configured again (it was already in netboot) when kernel boots
-        # and we choose to do it dinamically, we need to set 'ksdevice' to one of
+        # and we choose to do it dynamically, we need to set 'ksdevice' to one of
         # the interfaces' MAC addresses in ppc systems.
         # ksdevice=bootif is not useful in yaboot, as the "ipappend" line is a pxe feature.
         if system and arch and (arch == "ppc" or arch == "ppc64"):
