@@ -1,4 +1,10 @@
-#!/bin/bash
+#! /bin/bash
+#
+#
+#
+
+CUR_DIR=$(pwd)
+WORK_DIR=$(cd "$(dirname "$0")"; pwd)
 
 # DISTRO directory overrides. Pass these vars in from outside:
 # export SYSLINUX_DIR=/usr/share/...;./mkgrub.sh
@@ -6,7 +12,7 @@
 [[ -z "$GRUB2_MOD_DIR" ]] && GRUB2_MOD_DIR="/usr/share/grub2"
 
 BOOTLOADERS_DIR="/var/lib/cobbler/loaders"
-TARGETS="arm64-efi i386-pc-pxe powerpc-ieee1275 x86_64-efi"
+TARGETS="arm64-efi i386-pc-pxe powerpc-ieee1275 x86_64-efi mips-efi"
 
 rm -rf "${BOOTLOADERS_DIR}/.cobbler_postun_cleanup"
 
@@ -16,7 +22,7 @@ rm -rf "${BOOTLOADERS_DIR}/.cobbler_postun_cleanup"
 # i386/i686 => bootia32.efi
 # IA64 => bootia64.efi
 # arm => bootarm.efi
-# MIPS  => bootmips.efi
+# mips  => core.efi
 
 FS_MODULES="btrfs ext2 xfs jfs reiserfs"
 CD_MODULES=" all_video boot cat configfile echo true \
@@ -71,7 +77,9 @@ for TARGET in $TARGETS;do
 	    ;;
 	mips-efi)
 	    TARGET_EXTRA_MODULES="mipsel-loongson-elf"
-	    BINARY="bootmips.efi"
+	    BINARY="core.efi"
+	    cp -rf ${WORK_DIR}/${BINARY} ${BOOTLOADERS_DIR}/grub/${BINARY}
+	    break
 	    ;;
     esac
     GRUB_MODULES="${CD_MODULES} ${FS_MODULES} ${PXE_MODULES} ${CRYPTO_MODULES} ${MISC_MODULES} ${TARGET_EXTRA_MODULES}"

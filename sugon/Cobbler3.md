@@ -211,38 +211,40 @@ https://cobbler.github.io
 
 ## 配置
 
-* settings设置
+### Settings
 
-  修改配置后需要重启cobblerd.service，然后“cobbler check”检查是否存在异常项。
+配置路径：/etc/cobbler/setttings
 
-  dhcp
+修改配置后需要重启cobblerd.service，然后“cobbler check”检查是否存在异常项。
 
-  ```
-  # set to 1 to enable Cobbler's DHCP management features.
-  manage_dhcp: 1
-  ......
-  next_server: 172.16.0.11
-  ```
+dhcp
 
-  tftp
+```
+# set to 1 to enable Cobbler's DHCP management features.
+manage_dhcp: 1
+......
+next_server: 172.16.0.11
+```
 
-  ```
-  # set to 1 to enable Cobbler's TFTP management features.
-  manage_tftpd: 1
-  ```
+tftp
 
-  server
+```
+# set to 1 to enable Cobbler's TFTP management features.
+manage_tftpd: 1
+```
 
-  ```
-  # this is the address of the cobbler server
-  server: 172.16.0.11
-  ```
+server
 
-  xmlrpc
+```
+# this is the address of the cobbler server
+server: 172.16.0.11
+```
 
-  ```
-  xmlrpc_port: 25151
-  ```
+xmlrpc
+
+```
+xmlrpc_port: 25151
+```
 
 * 密码
 
@@ -252,7 +254,11 @@ https://cobbler.github.io
   $1$sugon$Pb5ACeAsmXmCkkZwZUqVN.
   ```
 
-* 加载loaders
+
+
+### Loaders
+
+- 下载loaders
 
   > cobbler get-loaders
 
@@ -273,12 +279,32 @@ https://cobbler.github.io
   *** TASK COMPLETE ***
   ```
 
-* 生成bootloader（grub.0/grubx64.efi/grubaa64.efi/ppc64le）
+
+
+- 生成loaders（grub.0/grubx64.efi/grubaa64.efi/ppc64le）
 
   > cd scripts
   >
   > sh mkgrub.sh
 
+- 目录
+
+  ```
+  .
+  ├── COPYING.syslinux
+  ├── COPYING.yaboot
+  ├── grub
+  │   ├── grub.0
+  │   ├── grubaa64.efi
+  │   ├── grub.ppc64le
+  │   └── grubx64.efi
+  ├── grub-x86_64.efi
+  ├── grub-x86.efi
+  ├── menu.c32
+  ├── pxelinux.0
+  ├── README
+  └── yaboot
+  ```
 
 
 
