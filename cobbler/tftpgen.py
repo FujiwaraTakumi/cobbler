@@ -334,6 +334,7 @@ class TFTPGen(object):
         """
         # sort the profiles
         profile_list = [profile for profile in self.profiles]
+        # custom: sort by create date time.
         profile_list = sorted(profile_list, key=lambda profile: profile.name)
         if arch:
             profile_list = [profile for profile in profile_list if profile.get_arch() == arch]
@@ -347,7 +348,7 @@ class TFTPGen(object):
         pxe_menu_items = ""
         grub_menu_items = ""
 
-        # create a dict of menuentries : submenuentries for grub during the creation of the pxe menu
+        # create a dict of menu entries : submenu entries for grub during the creation of the pxe menu
         submenus = {}
         for profile in profile_list:
             if not profile.enable_menu:
@@ -365,8 +366,9 @@ class TFTPGen(object):
             if contents is not None:
                 pxe_menu_items += contents + "\n"
 
+        # custom: remove submenu
         for distro in submenus:
-            grub_menu_items += "submenu '{0}' --class gnu-linux --class gnu --class os {{\n".format(distro.name)
+            # grub_menu_items += "submenu '{0}' --class gnu-linux --class gnu --class os {{\n".format(distro.name)
             for profile in submenus[distro]:
                 grub_contents = self.write_pxe_file(
                     filename=None,
@@ -374,7 +376,7 @@ class TFTPGen(object):
                     include_header=False, format="grub")
                 if grub_contents is not None:
                     grub_menu_items += grub_contents + "\n"
-            grub_menu_items += "}\n"
+            # grub_menu_items += "}\n"
 
         # image names towards the bottom
         for image in image_list:
@@ -386,6 +388,7 @@ class TFTPGen(object):
                 if contents is not None:
                     pxe_menu_items += contents + "\n"
 
+        # return dict
         return {'pxe': pxe_menu_items, 'grub': grub_menu_items}
 
     def write_pxe_file(self, filename, system, profile, distro, arch,

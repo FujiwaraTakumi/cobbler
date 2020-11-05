@@ -48,7 +48,7 @@ https://cobbler.github.io
   cobbler-3.X.zip
   ```
 
-* Python3 安装
+* Python3 及依赖安装
 
   ```
   # cobbler-2.8.5-0.3.el7.x86_64.rpm
@@ -56,48 +56,9 @@ https://cobbler.github.io
   
   yum makecache fast
   
-  createrepo_c-0.10.0-20.el7.x86_64.rpm
-  dnf-plugins-core-4.0.2.2-3.el7_6.noarch.rpm
-  epel-rpm-macros-7-25.noarch.rpm
-  pykickstart-1.99.66.21-1.el7.noarch.rpm
-  python3-3.6.8-13.el7.x86_64.rpm
-  python36-chardet-3.0.4-1.el7.noarch.rpm
-  python36-cheetah-3.2.4-1.el7.x86_64.rpm
-  python36-coverage-4.0.3-5.el7.x86_64.rpm
-  python36-crypto-2.6.1-16.el7.x86_64.rpm
-  python36-distro-1.2.0-3.el7.noarch.rpm
-  python36-dns-1.16.0-1.el7.noarch.rpm
-  python36-docutils-0.14-1.el7.noarch.rpm
-  python36-future-0.18.2-2.el7.noarch.rpm
-  python36-idna-2.7-2.el7.noarch.rpm
-  python36-jinja2-2.11.1-1.el7.noarch.rpm
-  python36-ldap3-2.6.1-1.el7.noarch.rpm
-  python36-markupsafe-0.23-3.el7.x86_64.rpm
-  python36-netaddr-0.7.18-3.el7.noarch.rpm
-  python36-pyasn1-0.4.7-1.el7.noarch.rpm
-  python36-pycodestyle-2.5.0-1.el7.noarch.rpm
-  python36-pycurl-7.43.0-7.el7.x86_64.rpm
-  python36-pyflakes-1.6.0-4.el7.noarch.rpm
-  python36-pygments-2.2.0-3.el7.noarch.rpm
-  python36-pysocks-1.6.8-7.el7.noarch.rpm
-  python36-PyYAML-3.13-1.el7.x86_64.rpm
-  python36-requests-2.14.2-2.el7.noarch.rpm
-  python36-simplejson-3.10.0-2.el7.x86_64.rpm
-  python36-six-1.14.0-2.el7.noarch.rpm
-  python36-sphinx-1.2.3-6.el7.noarch.rpm
-  python36-tornado-4.4.2-2.el7.x86_64.rpm
-  python36-urllib3-1.25.6-1.el7.noarch.rpm
-  python3-devel-3.6.8-13.el7.i686.rpm
-  python3-devel-3.6.8-13.el7.x86_64.rpm
-  python3-libs-3.6.8-13.el7.x86_64.rpm
-  python3-pip-9.0.3-7.el7_7.noarch.rpm
-  python3-pyudev-0.21.0-2.el7.noarch.rpm
-  python3-rpm-generators-6-2.el7.noarch.rpm
-  python3-rpm-macros-3-32.el7.noarch.rpm
-  python3-setuptools-39.2.0-10.el7.noarch.rpm
-  python3-sphinx-common-1.2.3-6.el7.noarch.rpm
-  xorriso-1.5.2-1.el7.x86_64.rpm
-  python36-mod_wsgi
+  # yum install cobbler cobbler-web dhcp tftp-server pykickstart httpd xinetd
+  # yum install cobbler cobbler-web tftp-server pykickstart httpd xinetd
+  yum install epel-release epel-rpm-macros tftp-server pykickstart httpd xinetd httpd-devel libpcap-devel ncurses ncurses-devel createrepo_c dnf-plugins-core xorriso grub2-efi-x64-modules grub2-efi-aa64-modules python3 python3-devel python3-libs python3-pip python3-pyudev python3-rpm-generators python3-rpm-macros python3-setuptools python3-sphinx-common python36-dns python36-jinja2 python36-sphinx python36-distro python36-coverage python36-cheetah python36-simplejson python36-six python36-tornado python36-urllib3 python36-devel python36-libs python36-pip python36-pyuedv python36-pyudev python36-crypto python36-PyYAML python36-requests python36-chardet python36-cheetah python36-coverag python36-docutils python36-future python36-idna python36-ldap3 python36-markupsafe python36-netaddr python36-pyasn1 python36-pycodestyle python36-pycurl python36-pyflakes python36-pygments python36-pysocks python36-mod_wsgi
   
   ```
 
