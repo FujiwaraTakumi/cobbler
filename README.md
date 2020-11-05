@@ -30,11 +30,14 @@ The documentation can be found at [Readthedocs](https://cobbler.readthedocs.io)
 ### Install
 
 ```shell script
+
 python3 setup.py install
 
 python3 setup.py install --record installed.txt
 
 ```
+
+
 
 ### Uninstall
 
