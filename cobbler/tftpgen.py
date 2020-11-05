@@ -364,7 +364,9 @@ class TFTPGen(object):
                 system=None, profile=profile, distro=distro, arch=distro.arch,
                 include_header=False)
             if contents is not None:
-                pxe_menu_items += contents + "\n"
+                # custom: 'x86_64' keep only
+                if profile.get_arch() == "x86_64":
+                    pxe_menu_items += contents + "\n"
 
         # custom: remove submenu
         for distro in submenus:
