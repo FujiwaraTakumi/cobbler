@@ -50,7 +50,7 @@ https://cobbler.github.io
 
 * Python3 及依赖安装
 
-  ```
+  ```shell script
   # cobbler-2.8.5-0.3.el7.x86_64.rpm
   # cobbler-web-2.8.5-0.3.el7.noarch.rpm
   
@@ -60,16 +60,20 @@ https://cobbler.github.io
   
   # yum install cobbler cobbler-web dhcp tftp-server pykickstart httpd xinetd
   # yum install cobbler cobbler-web tftp-server pykickstart httpd xinetd
-  yum install epel-rpm-macros tftp-server pykickstart httpd xinetd httpd-devel libpcap-devel ncurses ncurses-devel createrepo_c dnf-plugins-core xorriso grub2-efi-x64-modules grub2-efi-aa64-modules python3 python3-devel python3-libs python3-pip python3-pyudev python3-rpm-generators python3-rpm-macros python3-setuptools python3-sphinx-common python36-dns python36-jinja2 python36-sphinx python36-distro python36-coverage python36-cheetah python36-simplejson python36-six python36-tornado python36-urllib3 python36-devel python36-libs python36-pip python36-crypto python36-PyYAML python36-requests python36-chardet python36-cheetah python36-docutils python36-future python36-idna python36-ldap3 python36-markupsafe python36-netaddr python36-pyasn1 python36-pycodestyle python36-pycurl python36-pyflakes python36-pygments python36-pysocks python36-mod_wsgi
+  yum install epel-rpm-macros tftp-server pykickstart httpd xinetd httpd-devel libpcap-devel ncurses ncurses-devel createrepo_c dnf-plugins-core xorriso grub2-efi-x64-modules grub2-efi-aa64-modules python3 python3-devel python3-libs python3-pip python3-pyudev python3-rpm-generators python3-rpm-macros python3-setuptools python3-sphinx-common python36-dns python36-jinja2 python36-sphinx python36-distro python36-coverage python36-cheetah python36-simplejson python36-six python36-tornado python36-urllib3 python36-devel python36-libs python36-pip python36-crypto python36-PyYAML python36-requests python36-chardet python36-cheetah python36-docutils python36-future python36-idna python36-ldap3 python36-markupsafe python36-netaddr python36-pyasn1 python36-pycodestyle python36-pycurl python36-pyflakes python36-pygments python36-pysocks python36-django python36-pathspec python36-responses python36-mod_wsgi
   
   ```
 
+* PIP3 Django版本升级
 
+  ```shell script
+  pip3 install django==3.1.0 -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+  ```
 
 
 * Cobbler安装
 
-  ```
+  ```shell script
   unzip cobbler-3.X.zip
   cd cobbler-3.X
   
@@ -115,7 +119,7 @@ https://cobbler.github.io
 
   > systemctl start/stop cobblerd.service
 
-  ```
+  ```text
   ● cobblerd.service - Cobbler Helper Daemon
      Loaded: loaded (/etc/systemd/system/cobblerd.service; disabled; vendor preset: disabled)
      Active: active (running) since Wed 2020-10-21 16:56:27 CST; 2min 19s ago
@@ -130,7 +134,7 @@ https://cobbler.github.io
 
   > systemctl start/stop httpd.service
 
-  ```
+  ```text
   ● httpd.service - The Apache HTTP Server
      Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
      Active: active (running) since Wed 2020-10-21 16:57:18 CST; 2min 0s ago
