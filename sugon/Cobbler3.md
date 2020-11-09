@@ -64,6 +64,14 @@ https://cobbler.github.io
   
   ```
 
+* PIP3 mod_wsgi
+
+  ```
+  yum install gcc
+  pip3 install mod_wsgi -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+  ```
+
+
 * PIP3 Django版本升级
 
   ```shell script
