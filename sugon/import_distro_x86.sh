@@ -1,4 +1,3 @@
-
 # CentOS 6.6
 MIX_NAME="CentOS6u6"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos6u6" "initrd_centos6u6.img"
@@ -48,6 +47,4 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=172.16.0.2:/ins
 MIX_NAME="Hygon_KOS_V10_0430_Server"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_kos_0430_server" "initrd_kos_0430_server.img"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:172.16.0.2:/install/kos_0430_server  inst.ks=nfs:172.16.0.2:/install/ks_kos_0430_server.cfg"
-
-
 

@@ -88,14 +88,12 @@ fi
 BaseDir="/install/tftpboot/x86_64"
 source import_distro_x86.sh
 
-
 ## AARCH64
-BaseDir="/install/tftpboot/aarch64"
+#BaseDir="/install/tftpboot/aarch64"
+BaseDir="/install/tftpboot/ft"
 source import_distro_arm.sh
 
-
 ## MIPS64EL
-BaseDir="/install/tftpboot/mips64el"
+#BaseDir="/install/tftpboot/mips64el"
+BaseDir="/install/tftpboot/lx"
 source import_distro_mips.sh
-
-
