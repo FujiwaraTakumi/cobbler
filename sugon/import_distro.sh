@@ -68,7 +68,7 @@ function ImportProfile() {
         echo "${profile} has imported."
         return 0
     fi
-    cobbler profile add --name=${profile} --distro=${distro} --kernel-options="\"${options}\""
+    cobbler profile add --name=${profile} --distro=${distro} --kernel-options="${options}"
 }
 
 echo "IMPORT DISTRO / PROFILE ..."

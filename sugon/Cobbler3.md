@@ -69,6 +69,9 @@ https://cobbler.github.io
   ```
   yum install gcc
   pip3 install mod_wsgi -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+  
+  # LAN - Local Area Network
+  # pip3 install mod_wsgi -i http://172.16.0.1:8100/simple --trusted-host 172.16.0.1
   ```
 
 
@@ -76,6 +79,9 @@ https://cobbler.github.io
 
   ```shell script
   pip3 install django==3.1.0 -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+  
+  # LAN
+  # pip3 install django==3.1.0 -i http://172.16.0.1:8100/simple --trusted-host 172.16.0.1
   ```
 
 
@@ -624,7 +630,12 @@ DHCP Filename Override         : <<inherit>>
   </virtualhost>
   ```
 
-
+* httpd服务 Set the 'ServerName' directive globally to suppress this message
+  
+  ```text
+    #
+    ServerName localhost:80
+  ```
 
 
 ## 配置文件示例

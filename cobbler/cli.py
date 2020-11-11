@@ -521,7 +521,7 @@ class CobblerCLI(object):
             self.parser.add_option("--filename", dest="filename", help="filename to load data from")
         (options, args) = self.parser.parse_args(self.args)
         # print options
-        print("Options:\n{}\n".format(options))
+        # print("Options:\n{}\n".format(options))
 
         data = None
         # the first three don't require a name
