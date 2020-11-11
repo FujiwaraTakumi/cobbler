@@ -30,21 +30,21 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "intel_idle.max_cstate=1 intel_pstate=
 # UOS 20
 MIX_NAME="UOS20"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz.efi_uos20" "initrd.lz_uos20"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=172.16.0.2:/install/uos20 rw boot=live union=overlay livecd-installer locale=zh_CN --"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=${PXE_AD}:/install/uos20 rw boot=live union=overlay livecd-installer locale=zh_CN --"
 #
 MIX_NAME="Hygon_UOS_V20_SP1_Server"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz.efi_uos_sp1" "initrd_uos_sp1.lz"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=172.16.0.2:/install/uos_sp1_server rw boot=live union=overlay livecd-installer locale=zh_CN --"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=${PXE_AD}:/install/uos_sp1_server rw boot=live union=overlay livecd-installer locale=zh_CN --"
 #
 MIX_NAME="Hygon_UOS_V20_SP1_Server_NVME"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz.efi_uos_sp1" "initrd_uos_sp1.lz"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=172.16.0.2:/install/uos_sp1_server_nvme rw boot=live union=overlay livecd-installer locale=zh_CN --"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=${PXE_AD}:/install/uos_sp1_server_nvme rw boot=live union=overlay livecd-installer locale=zh_CN --"
 #
 MIX_NAME="Hygon_UOS_V20_SP1_Desktop"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz.efi_uos_sp1_desktop" "initrd_uos_sp1_desktop.lz"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=172.16.0.2:/install/uos_sp1_desktop rw boot=live union=overlay livecd-installer locale=zh_CN --"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "root=/dev/nfs nfsroot=${PXE_AD}:/install/uos_sp1_desktop rw boot=live union=overlay livecd-installer locale=zh_CN --"
 #
 MIX_NAME="Hygon_KOS_V10_0430_Server"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_kos_0430_server" "initrd_kos_0430_server.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:172.16.0.2:/install/kos_0430_server  inst.ks=nfs:172.16.0.2:/install/ks_kos_0430_server.cfg"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:${PXE_AD}:/install/kos_0430_server  inst.ks=nfs:${PXE_AD}:/install/ks_kos_0430_server.cfg"
 

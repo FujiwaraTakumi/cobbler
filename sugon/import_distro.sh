@@ -16,6 +16,7 @@ function ImportDistroX86_64() {
     local distro=$2
     local linux=$3
     local initrd=$4
+    echo "import ${distro} ..."
     DisExist=$(cobbler distro find --name=${distro} | grep -c '${distro}')
     if [[ ${DisExist} -eq 2 ]]; then
         echo "${distro} has imported."
@@ -23,6 +24,7 @@ function ImportDistroX86_64() {
     fi
     CurDistroBase="${BaseDir}/${srcdir}"
     cobbler distro add --name=${distro} --arch=x86_64 --kernel="${CurDistroBase}/${linux}" --initrd="${CurDistroBase}/${initrd}"
+    echo "done."
 }
 
 function ImportDistroAarch64() {
@@ -30,6 +32,7 @@ function ImportDistroAarch64() {
     local distro=$2
     local linux=$3
     local initrd=$4
+    echo "import ${distro} ..."
     DisExist=$(cobbler distro find --name=${distro} | grep -c '${distro}')
     if [[ ${DisExist} -eq 2 ]]; then
         echo "${distro} has imported."
@@ -37,6 +40,7 @@ function ImportDistroAarch64() {
     fi
     CurDistroBase="${BaseDir}/${srcdir}"
     cobbler distro add --name=${distro} --arch=aarch64 --kernel="${CurDistroBase}/${linux}" --initrd="${CurDistroBase}/${initrd}"
+    echo "done."
 }
 
 function ImportDistroMips64el() {
@@ -44,6 +48,7 @@ function ImportDistroMips64el() {
     local distro=$2
     local linux=$3
     local initrd=$4
+    echo "import ${distro} ..."
     DisExist=$(cobbler distro find --name=${distro} | grep -c '${distro}')
     if [[ ${DisExist} -eq 2 ]]; then
         echo "${distro} has imported."
@@ -51,6 +56,7 @@ function ImportDistroMips64el() {
     fi
     CurDistroBase="${BaseDir}/${srcdir}"
     cobbler distro add --name=${distro} --arch=mips64el --kernel="${CurDistroBase}/${linux}" --initrd="${CurDistroBase}/${initrd}"
+    echo "done."
 }
 
 # $1    profile name    CentOS7u6
@@ -60,6 +66,7 @@ function ImportProfile() {
     local distro=$1
     local profile=$2
     local options=$3
+    echo "import ${profile} ..."
     if [[ -z ${distro} ]] || [[ -z ${profile} ]]; then
         return 1
     fi
@@ -69,6 +76,7 @@ function ImportProfile() {
         return 0
     fi
     cobbler profile add --name=${profile} --distro=${distro} --kernel-options="${options}"
+    echo "done."
 }
 
 echo "IMPORT DISTRO / PROFILE ..."
