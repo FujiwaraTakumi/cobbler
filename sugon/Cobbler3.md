@@ -97,6 +97,7 @@ https://cobbler.github.io
   #
   python3 setup.py install
   python3 setup.py install --root /
+  python3 setup.py install --record installed.txt
   
   # 系统服务
   cp /etc/cobbler/cobblerd.service /etc/systemd/system/
@@ -116,7 +117,7 @@ https://cobbler.github.io
 * Cobbler卸载
 
   > make clean
-
+  > cat installed.txt | xargs rm -rf 
 
 
 

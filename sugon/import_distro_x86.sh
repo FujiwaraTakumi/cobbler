@@ -20,7 +20,7 @@ ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u6_hygon" "initrd
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kickstart/centos7u6_hygon_ks_origin.cfg inst.repo=nfs:${PXE_AD}:/install/centos7u6hygon_origin vga=791 scsi_mod.scan=sync inst.sshd ksdevice=bootif nouveau.modeset=0"
 # CentOS7.4 DCU
 MIX_NAME="CentOS7u4_DCU"
-ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u4" "initrd_centos7u4_hygon.img"
+ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u4_hygon" "initrd_centos7u4_hygon.img"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kickstart/centos7u4_hygon_patch12_uefi.cfg inst.repo=nfs:${PXE_AD}:/install/centos7u4_hygon_patch10 true vga=791 inst.sshd ksdevice=bootif nouveau.modeset=0"
 # Tencent MPT
 MIX_NAME="TencentMPT"

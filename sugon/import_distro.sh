@@ -16,10 +16,10 @@ function ImportDistroX86_64() {
     local distro=$2
     local linux=$3
     local initrd=$4
-    echo "import ${distro} ..."
-    DisExist=$(cobbler distro find --name=${distro} | grep -c '${distro}')
-    if [[ ${DisExist} -eq 2 ]]; then
-        echo "${distro} has imported."
+    echo "import distro ${distro} ..."
+    DisExist=$(cobbler distro find --name=${distro} | grep -c "${distro}")
+    if [[ ${DisExist} -eq 1 ]]; then
+        echo "distro ${distro} has imported."
         return 0
     fi
     CurDistroBase="${BaseDir}/${srcdir}"
@@ -32,10 +32,10 @@ function ImportDistroAarch64() {
     local distro=$2
     local linux=$3
     local initrd=$4
-    echo "import ${distro} ..."
-    DisExist=$(cobbler distro find --name=${distro} | grep -c '${distro}')
-    if [[ ${DisExist} -eq 2 ]]; then
-        echo "${distro} has imported."
+    echo "import distro ${distro} ..."
+    DisExist=$(cobbler distro find --name=${distro} | grep -c "${distro}")
+    if [[ ${DisExist} -eq 1 ]]; then
+        echo "distro ${distro} has imported."
         return 0
     fi
     CurDistroBase="${BaseDir}/${srcdir}"
@@ -48,10 +48,10 @@ function ImportDistroMips64el() {
     local distro=$2
     local linux=$3
     local initrd=$4
-    echo "import ${distro} ..."
-    DisExist=$(cobbler distro find --name=${distro} | grep -c '${distro}')
-    if [[ ${DisExist} -eq 2 ]]; then
-        echo "${distro} has imported."
+    echo "import distro ${distro} ..."
+    DisExist=$(cobbler distro find --name=${distro} | grep -c "${distro}")
+    if [[ ${DisExist} -eq 1 ]]; then
+        echo "distro ${distro} has imported."
         return 0
     fi
     CurDistroBase="${BaseDir}/${srcdir}"
@@ -66,13 +66,13 @@ function ImportProfile() {
     local distro=$1
     local profile=$2
     local options=$3
-    echo "import ${profile} ..."
+    echo "import profile ${profile} ..."
     if [[ -z ${distro} ]] || [[ -z ${profile} ]]; then
         return 1
     fi
-    DisExist=$(cobbler profile find --name=${profile} | grep -c '${profile}')
-    if [[ ${DisExist} -eq 2 ]]; then
-        echo "${profile} has imported."
+    DisExist=$(cobbler profile find --name=${profile} | grep -c "${profile}")
+    if [[ ${DisExist} -eq 1 ]]; then
+        echo "profile ${profile} has imported."
         return 0
     fi
     cobbler profile add --name=${profile} --distro=${distro} --kernel-options="${options}"
@@ -94,14 +94,14 @@ fi
 
 ## X86_64 / AMD64
 BaseDir="/install/tftpboot/x86_64"
-source import_distro_x86.sh
+source ./import_distro_x86.sh
 
 ## AARCH64
 #BaseDir="/install/tftpboot/aarch64"
 BaseDir="/install/tftpboot/ft"
-source import_distro_arm.sh
+source ./import_distro_arm.sh
 
 ## MIPS64EL
 #BaseDir="/install/tftpboot/mips64el"
 BaseDir="/install/tftpboot/lx"
-source import_distro_mips.sh
+source ./import_distro_mips.sh
