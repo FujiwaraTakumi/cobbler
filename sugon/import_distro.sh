@@ -73,10 +73,12 @@ function ImportProfile() {
     DisExist=$(cobbler profile find --name=${profile} | grep -c "${profile}")
     if [[ ${DisExist} -eq 1 ]]; then
         echo "profile ${profile} has imported."
+        echo ""
         return 0
     fi
     cobbler profile add --name=${profile} --distro=${distro} --kernel-options="${options}"
     echo "done."
+    echo ""
 }
 
 echo "IMPORT DISTRO / PROFILE ..."
@@ -105,3 +107,4 @@ source ./import_distro_arm.sh
 #BaseDir="/install/tftpboot/mips64el"
 BaseDir="/install/tftpboot/lx"
 source ./import_distro_mips.sh
+
