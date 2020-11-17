@@ -9,7 +9,7 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kicksta
 # CentOS 7.6 Hygon
 MIX_NAME="CentOS7u6_HYGON"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u6_hygon" "initrd_centos7u6_hygon.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kickstart/centos7u6_hygon_ks_legacy.cfg inst.repo=nfs:${PXE_AD}:/install/centos7u6hygon/ true vga=791 inst.sshd ksdevice=bootif nouveau.modeset=0"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kickstart/centos7u6_ks_legacy.cfg inst.repo=nfs:${PXE_AD}:/install/centos7u6hygon/ true vga=791 inst.sshd ksdevice=bootif nouveau.modeset=0"
 # CentOS7.6 ORIGIN
 MIX_NAME="CentOS7u6_ORIGIN"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u6" "initrd_centos7u6_origin.img"
@@ -17,7 +17,7 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kicksta
 # CentOS7.6 Hygon ORIGIN
 MIX_NAME="CentOS7u6_HYGON_ORIGIN"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u6_hygon" "initrd_centos7u6_hygon_origin.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kickstart/centos7u6_hygon_ks_origin.cfg inst.repo=nfs:${PXE_AD}:/install/centos7u6hygon_origin vga=791 scsi_mod.scan=sync inst.sshd ksdevice=bootif nouveau.modeset=0"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kickstart/centos7u6_ks_origin.cfg inst.repo=nfs:${PXE_AD}:/install/centos7u6hygon_origin vga=791 scsi_mod.scan=sync inst.sshd ksdevice=bootif nouveau.modeset=0"
 # CentOS7.4 DCU
 MIX_NAME="CentOS7u4_DCU"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u4_hygon" "initrd_centos7u4_hygon.img"
