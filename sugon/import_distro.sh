@@ -94,6 +94,12 @@ if [[ $? -ne 0 ]]; then
     exit 3
 fi
 
+## CLEAR
+#abc=$(cobbler profile list)
+#for name in ${abc[*]}; do cobbler profile remove --name="${name}"; done
+#abc=$(cobbler distro list)
+#for name in ${abc[*]}; do cobbler distro remove --name="${name}"; done
+
 ## X86_64 / AMD64
 BaseDir="/install/tftpboot/x86_64"
 source ./import_distro_x86.sh
