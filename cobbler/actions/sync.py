@@ -74,6 +74,7 @@ class CobblerSync(object):
 
         self.pxelinux_dir = os.path.join(self.bootloc, "pxelinux.cfg")
         self.grub_dir = os.path.join(self.bootloc, "grub")
+        self.efi_dir = os.path.join(self.bootloc, "EFI")
         self.images_dir = os.path.join(self.bootloc, "images")
         self.yaboot_bin_dir = os.path.join(self.bootloc, "ppc")
         self.yaboot_cfg_dir = os.path.join(self.bootloc, "etc")
@@ -159,6 +160,12 @@ class CobblerSync(object):
             utils.mkdir(self.yaboot_bin_dir, logger=self.logger)
         if not os.path.exists(self.yaboot_cfg_dir):
             utils.mkdir(self.yaboot_cfg_dir, logger=self.logger)
+        # arm64
+        if not os.path.exists(self.efi_dir):
+            utils.mkdir(self.efi_dir, logger=self.logger)
+        efi_grub_link = os.path.join(self.efi_dir, "BOOT")
+        if not os.path.exists(efi_grub_link):
+            os.symlink(self.grub_dir, efi_grub_link)
 
     def clean_trees(self):
         """

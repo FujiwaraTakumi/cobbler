@@ -95,12 +95,14 @@ if [[ $? -ne 0 ]]; then
 fi
 
 ## CLEAR
-#abc=$(cobbler profile list)
-#for name in ${abc[*]}; do cobbler profile remove --name="${name}"; done
-#abc=$(cobbler distro list)
-#for name in ${abc[*]}; do cobbler distro remove --name="${name}"; done
+# abc=($(cobbler profile list))
+# for name in ${abc[*]}; do cobbler profile remove --name="${name}"; done
+# abc=($(cobbler distro list))
+# for name in ${abc[*]}; do cobbler distro remove --name="${name}"; done
 
 ## X86_64 / AMD64
+FTP_AD="172.16.0.3"
+PXE_AD="172.16.0.2"
 BaseDir="/install/tftpboot/x86_64"
 source ./import_distro_x86.sh
 
