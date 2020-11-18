@@ -105,11 +105,17 @@ BaseDir="/install/tftpboot/x86_64"
 source ./import_distro_x86.sh
 
 ## AARCH64
+# domain name is not supported
+FTP_AD="172.16.0.3"
+PXE_AD="172.16.0.2"
 #BaseDir="/install/tftpboot/aarch64"
 BaseDir="/install/tftpboot/ft"
 source ./import_distro_arm.sh
 
 ## MIPS64EL
+# domain name is not supported
+FTP_AD="172.16.0.3"
+PXE_AD="172.16.0.2"
 #BaseDir="/install/tftpboot/mips64el"
 BaseDir="/install/tftpboot/lx"
 source ./import_distro_mips.sh
