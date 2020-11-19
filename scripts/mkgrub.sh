@@ -12,7 +12,7 @@ WORK_DIR=$(cd "$(dirname "$0")"; pwd)
 [[ -z "$GRUB2_MOD_DIR" ]] && GRUB2_MOD_DIR="/usr/share/grub2"
 
 BOOTLOADERS_DIR="/var/lib/cobbler/loaders"
-TARGETS="arm64-efi i386-pc-pxe powerpc-ieee1275 x86_64-efi mips-efi"
+TARGETS="arm64-efi i386-pc-pxe powerpc-ieee1275 x86_64-efi"
 
 rm -rf "${BOOTLOADERS_DIR}/.cobbler_postun_cleanup"
 
