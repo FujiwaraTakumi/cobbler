@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 #
 #
-# arch options:
-#   x86_64
-#   aarch64
-#   mips64el
-#
 
 # $1    src path        /install/tftpboot/centos7u6_x86_64 (sync from [ftp.sims.com]/var/ftp/install/tftpboot)
 # $2    distro name     CentOS7u6
@@ -90,30 +85,25 @@ PXE_AD="pxe.sims.com"
 FTP_AD="172.16.0.3"
 PXE_AD="172.16.0.2"
 
-
-# cobbler
-which cobbler
-if [[ $? -ne 0 ]]; then
-    exit 3
-fi
-
-## CLEAR
-# abc=($(cobbler profile list))
-# for name in ${abc[*]}; do cobbler profile remove --name="${name}"; done
-# abc=($(cobbler distro list))
-# for name in ${abc[*]}; do cobbler distro remove --name="${name}"; done
-
 ## X86_64 / AMD64
 BaseDir="/install/tftpboot/x86_64"
-source ./import_distro_x86.sh
 
-## AARCH64
-#BaseDir="/install/tftpboot/aarch64"
+#MIX_NAME="ABC"
+#ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz" "initrd.img"
+#ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=xxx"
+
+
+## AARCH64 / FT
 BaseDir="/install/tftpboot/ft"
-source ./import_distro_arm.sh
 
-## MIPS64EL
-#BaseDir="/install/tftpboot/mips64el"
+#MIX_NAME="ABC"
+#ImportDistroAarch64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz" "initrd.img"
+#ImportProfile "${MIX_NAME}" "${MIX_NAME}" "nfsroot=xxx"
+
+
+## MIPS64EL / LX
 BaseDir="/install/tftpboot/lx"
-source ./import_distro_mips.sh
 
+#MIX_NAME="ABC"
+#ImportDistroMips64el "${MIX_NAME}" "${MIX_NAME}" "vmlinuz" "initrd.img"
+#ImportProfile "${MIX_NAME}" "${MIX_NAME}" "nfsroot=xxx"
