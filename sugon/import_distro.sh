@@ -89,7 +89,7 @@ FTP_AD="ftp.sims.com"
 PXE_AD="pxe.sims.com"
 FTP_AD="172.16.0.3"
 PXE_AD="172.16.0.2"
-
+CUSTOM_AD="172.16.0.9"
 
 # cobbler
 which cobbler

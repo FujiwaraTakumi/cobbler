@@ -168,4 +168,23 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquit
 MIX_NAME="XZZ200103_BM_loongson_kylin_v10_0907_desktop_120G"
 ImportDistroMips64el "XGGB200170_BM_loongson_kylin_v10_0907_desktop_120G" "${MIX_NAME}" "vmlinuz" "initrd.img"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquity loglevel=0 audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/lx/XZZ200103_BM_loongson_kylin_v10_0907_desktop_120G/ 3"
-
+#
+MIX_NAME="XAH2002300-301_AHSRD_loongson_kylin_v10_0825_server"
+ImportDistroMips64el "XAH2002300-301_AHSRD_loongson_kylin_v10_0825_server" "${MIX_NAME}" "vmlinuz" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" " ip=dhcp inst.repo=nfs:${PXE_AD}:/install/lx/XAH2002300-301_AHSRD_loongson_kylin_v10_0825_server inst.ks=nfs:${PXE_AD}:/install/lx/XAH2002300-301_AHSRD_loongson_kylin_v10_0825_server/ks.cfg"
+#
+MIX_NAME="XSX2001800_BM_loongson_kylin_v10_0907_desktop_120G_wlh"
+ImportDistroMips64el "XSX2001800_BM_loongson_kylin_v10_0907_desktop_120G_wlh" "${MIX_NAME}" "vmlinuz" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquity loglevel=0 audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/lx/XSX2001800_BM_loongson_kylin_v10_0907_desktop_120G_wlh/ 3"
+#
+MIX_NAME="BM_loongson_kylin_v10_0907_desktop_120G_dp"
+ImportDistroMips64el "BM_loongson_kylin_v10_0907_desktop_120G_dp" "${MIX_NAME}" "vmlinuz" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquity loglevel=0 audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/lx/BM_loongson_kylin_v10_0907_desktop_120G_dp/ 3"
+#
+MIX_NAME="BM_loongson_kylin_v10_0907_desktop_240G_zf"
+ImportDistroMips64el "BM_loongson_kylin_v10_0907_desktop_240G_zf" "${MIX_NAME}" "vmlinuz" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquity loglevel=0 audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/lx/BM_loongson_kylin_v10_0907_desktop_240G_zf/ 3"
+#
+MIX_NAME="BM_loongson_kylin_v10_0907_desktop_240G_dp"
+ImportDistroMips64el "BM_loongson_kylin_v10_0907_desktop_240G_dp" "${MIX_NAME}" "vmlinuz" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquity loglevel=0 audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/lx/BM_loongson_kylin_v10_0907_desktop_240G_dp/ 3"

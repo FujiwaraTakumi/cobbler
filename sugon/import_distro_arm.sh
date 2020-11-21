@@ -88,4 +88,11 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "console=tty boot=live union=overlay l
 MIX_NAME="XHB200517_Phytium_UOS_V20_SP2U1_Desktop"
 ImportDistroAarch64 "XHB200517_Phytium_UOS_V20_SP2U1_Desktop" "${MIX_NAME}" "vmlinuz" "initrd.img"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "console=tty boot=live union=overlay livecd-installer quiet splash -- root=/dev/nfs nfsroot=${PXE_AD}:/install/ft/XHB200517_Phytium_UOS_V20_SP2U1_Desktop/"
-
+#
+MIX_NAME="xhb2002520_Kylin_Desktop_V10_0710"
+ImportDistroAarch64 "xhb2002520_Kylin_Desktop_V10_0710" "${MIX_NAME}" "Image" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "loglevel=7 console=ttyAMA0,115200 boot=casper only-ubiquity locale=zh_ZN audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/ft/xhb2002520_Kylin_Desktop_V10_0710/  automatic-ubiquity url=http://${FTP_AD}/http/ft/custom/xhb2002520_Kylin_Desktop_V10_0710.cfg"
+#
+MIX_NAME="Install_TJSFJ_Phytium_Kylin_V10_0710_Desktop"
+ImportDistroAarch64 "TJSFJ_Phytium_Kylin_V10_0710_Desktop" "${MIX_NAME}" "Image" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper only-ubiquity locale=en_US audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/ft/TJSFJ_Phytium_Kylin_V10_0710_Desktop/ automatic-ubiquity url=http://${FTP_AD}/http/ft/TJSFJ_Phytium_Kylin_V10_0710_Desktop/auto-preseed.cfg"
