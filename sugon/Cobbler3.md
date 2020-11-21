@@ -638,6 +638,12 @@ DHCP Filename Override         : <<inherit>>
     ServerName localhost:80
   ```
 
+* field power_type default value (ipmitool) is not listed in choices (['aliyun', 'amt_ws', 'apc', 'apc_snmp', 'aws'...
+  ```
+  cd /usr/sbin/
+  ln -s /usr/local/sbin/fence_ipmitool fence_ipmitool 
+  ```
+
 
 ## 配置文件示例
 
