@@ -47,11 +47,11 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquit
 #
 MIX_NAME="Loongson_KOS_V10_0825_Server"
 ImportDistroMips64el "Loongson_KOS_V10_0825_Server" "${MIX_NAME}" "vmlinuz" "initrd.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:172.16.0.3:/install/lx/Loongson_KOS_V10_0825_Server rdloaddriver=ahci rdloaddriver=megaraid_sas inst.ks=nfs:172.16.0.3:/install/lx/Loongson_KOS_V10_0825_Server/ks.cfg"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:${PXE_AD}:/install/lx/Loongson_KOS_V10_0825_Server rdloaddriver=ahci rdloaddriver=megaraid_sas inst.ks=nfs:${PXE_AD}:/install/lx/Loongson_KOS_V10_0825_Server/ks.cfg"
 #
 MIX_NAME="Loongson_KOS_V10_0825_Server_Test"
 ImportDistroMips64el "Loongson_KOS_V10_0825_Server" "${MIX_NAME}" "vmlinuz" "initrd.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:172.16.0.3:/install/lx/Loongson_KOS_V10_0825_Server_Test rdloaddriver=ahci rdloaddriver=megaraid_sas inst.ks=nfs:172.16.0.3:/install/lx/Loongson_KOS_V10_0825_Server_Test/ks.cfg"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:${PXE_AD}:/install/lx/Loongson_KOS_V10_0825_Server_Test rdloaddriver=ahci rdloaddriver=megaraid_sas inst.ks=nfs:${PXE_AD}:/install/lx/Loongson_KOS_V10_0825_Server_Test/ks.cfg"
 #
 MIX_NAME="CQBSQ_Loongson_NeoKylin_V7_0701_Desktop"
 ImportDistroMips64el "CQBSQ_Loongson_NeoKylin_V7_0701_Desktop" "${MIX_NAME}" "vmlinuz" "initrd.img"
@@ -59,7 +59,7 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper only-ubiquity locale=en_U
 #
 MIX_NAME="AHSRD_loongson_kylin_v10_0825_server"
 ImportDistroMips64el "AHSRD_loongson_kylin_v10_0825_server" "${MIX_NAME}" "vmlinuz" "initrd.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:172.16.0.3:/install/lx/AHSRD_loongson_kylin_v10_0825_server inst.ks=nfs:172.16.0.3:/install/lx/AHSRD_loongson_kylin_v10_0825_server/ks.cfg"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ip=dhcp inst.repo=nfs:${PXE_AD}:/install/lx/AHSRD_loongson_kylin_v10_0825_server inst.ks=nfs:${PXE_AD}:/install/lx/AHSRD_loongson_kylin_v10_0825_server/ks.cfg"
 #
 MIX_NAME="XAH2002740-690-600_loongson_UOS_V20_SP2_Desktop"
 ImportDistroMips64el "XAH2002740-690-600_loongson_UOS_V20_SP2_Desktop" "${MIX_NAME}" "vmlinuz" "initrd.img"
