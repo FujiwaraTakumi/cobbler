@@ -334,8 +334,8 @@ class TFTPGen(object):
         """
         # sort the profiles
         profile_list = [profile for profile in self.profiles]
-        # custom: sort by create date time.
-        profile_list = sorted(profile_list, key=lambda profile: profile.name)
+        # custom: sort by weight.
+        profile_list = sorted(profile_list, key=lambda profile: int(profile.weight))
         if arch:
             profile_list = [profile for profile in profile_list if profile.get_arch() == arch]
 

@@ -33,6 +33,7 @@ FIELDS = [
     ["depth", 1, 1, "", False, "", 0, "int"],
     ["mtime", 0, 0, "", False, "", 0, "int"],
     ["uid", "", "", "", False, "", 0, "str"],
+    ["weight", 10000, "", "Order Weight", True, "", 0, "int"],
 
     # editable in UI
     ["autoinstall", "SETTINGS:default_autoinstall", '<<inherit>>', "Automatic Installation Template", True, "Path to automatic installation template", 0, "str"],
@@ -68,7 +69,6 @@ FIELDS = [
     ["virt_path", "", '<<inherit>>', "Virt Path", True, "Ex: /directory OR VolGroup00", 0, "str"],
     ["virt_ram", "SETTINGS:default_virt_ram", '<<inherit>>', "Virt RAM (MB)", True, "", 0, "int"],
     ["virt_type", "SETTINGS:default_virt_type", '<<inherit>>', "Virt Type", True, "Virtualization technology to use", validate.VIRT_TYPES, "str"],
-    ["weight", None, '', "Order Weight", True, "", 10000, "int"],
 ]
 
 
@@ -88,6 +88,7 @@ class Profile(item.Item):
         self.fetchable_files = {}
         self.boot_files = {}
         self.template_files = {}
+        self.weight = 10000
 
     #
     # override some base class methods first (item.Item)
@@ -383,4 +384,8 @@ class Profile(item.Item):
         if parent:
             return parent.get_arch()
         return None
+
+    def set_weight(self, data):
+        if data:
+            self.weight = data
 # EOF

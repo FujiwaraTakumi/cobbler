@@ -540,6 +540,12 @@ class CobblerCLI(object):
             if opt(options, "name") == "" and object_action not in ("reload", "update"):
                 print("--name is required")
                 return 1
+            if opt(options, "weight") == "" and object_type == "profile" and object_action == "add":
+                print("--weight is required")
+                return 1
+            if not opt(options, "weight").isdigit() and object_type == "profile" and object_action == "add":
+                print("--weight digit need only.")
+                return 1
             if object_action in ["add", "edit", "copy", "rename", "remove"]:
                 try:
                     if object_type == "setting":
