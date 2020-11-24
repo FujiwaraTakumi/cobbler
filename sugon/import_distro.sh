@@ -76,8 +76,9 @@ function ImportProfile() {
         echo ""
         return 0
     fi
-    cobbler profile add --name=${profile} --distro=${distro} --kernel-options="${options}"
+    cobbler profile add --name=${profile} --distro=${distro} --weight=${Weight} --kernel-options="${options}"
     echo "done."
+    Weight=$((Weight+1))
     echo ""
 }
 
@@ -104,15 +105,18 @@ fi
 # for name in ${abc[*]}; do cobbler distro remove --name="${name}"; done
 
 ## X86_64 / AMD64
+Weight=1000
 BaseDir="/install/tftpboot/x86_64"
 source ./import_distro_x86.sh
 
 ## AARCH64
+Weight=2000
 #BaseDir="/install/tftpboot/aarch64"
 BaseDir="/install/tftpboot/ft"
 source ./import_distro_arm.sh
 
 ## MIPS64EL
+Weight=3000
 #BaseDir="/install/tftpboot/mips64el"
 BaseDir="/install/tftpboot/lx"
 source ./import_distro_mips.sh

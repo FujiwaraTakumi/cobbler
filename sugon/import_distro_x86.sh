@@ -1,7 +1,4 @@
-# CentOS 6.6
-MIX_NAME="CentOS6u6"
-ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos6u6" "initrd_centos6u6.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ramdisk_size=65536 ks=nfs:${PXE_AD}:/install/ks_centos6u6_all.cfg true ip=dhcp ksdevice=link vga=791 nouveau.modeset=0"
+
 # CentOS 7.6
 MIX_NAME="CentOS7u6"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u6" "initrd_centos7u6.img"
@@ -10,6 +7,11 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kicksta
 MIX_NAME="CentOS7u6_HYGON"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u6_hygon" "initrd_centos7u6_hygon.img"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kickstart/centos7u6_ks_legacy.cfg inst.repo=nfs:${PXE_AD}:/install/centos7u6hygon/ true vga=791 inst.sshd ksdevice=bootif nouveau.modeset=0"
+# CentOS 6.6
+MIX_NAME="CentOS6u6"
+ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos6u6" "initrd_centos6u6.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ramdisk_size=65536 ks=nfs:${PXE_AD}:/install/ks_centos6u6_all.cfg true ip=dhcp ksdevice=link vga=791 nouveau.modeset=0"
+
 # CentOS7.6 ORIGIN
 MIX_NAME="CentOS7u6_ORIGIN"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u6" "initrd_centos7u6_origin.img"
@@ -69,7 +71,7 @@ MIX_NAME="dats-n"
 ImportDistroX86_64 "old" "${MIX_NAME}" "vmlinuz.centos6u6" "initrd.img.centos6u6"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ramdisk_size=65536 ks=nfs:172.16.0.9:/opt/install/centos6u6_x64_ks_factory.cfg true ip=dhcp ksdevice=link vga=791 nouveau.modeset=0"
 #
-MIX_NAME="dats+"
+MIX_NAME="dats-plus"
 ImportDistroX86_64 "old" "${MIX_NAME}" "vmlinuz.centos6u6" "initrd.img.centos6u6"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "ramdisk_size=65536 ks=nfs:172.16.0.9:/opt/install/centos6u6_x64_ks_vrenovate.cfg true ip=dhcp ksdevice=link vga=791 nouveau.modeset=0"
 #
