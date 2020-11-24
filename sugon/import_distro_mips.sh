@@ -191,5 +191,5 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquit
 #
 MIX_NAME="BM_loongson_kylin_v10_0907_desktop_240G_jc"
 ImportDistroMips64el "BM_loongson_kylin_v10_0907_desktop_240G_jc" "${MIX_NAME}" "vmlinuz" "initrd.img"
-ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquity loglevel=0 audit=0 netboot=nfs nfsroot=${FTP_AD}:/install/lx/BM_loongson_kylin_v10_0907_desktop_240G_jc/ 3"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "boot=casper quiet splash only-ubiquity loglevel=0 audit=0 netboot=nfs nfsroot=${PXE_AD}:/install/lx/BM_loongson_kylin_v10_0907_desktop_240G_jc/ 3"
 
