@@ -66,6 +66,8 @@ function ImportProfile() {
     local distro=$1
     local profile=$2
     local options=$3
+    Weight=$((Weight+1))
+
     echo "import profile ${profile} ..."
     if [[ -z ${distro} ]] || [[ -z ${profile} ]]; then
         return 1
@@ -78,7 +80,6 @@ function ImportProfile() {
     fi
     cobbler profile add --name=${profile} --distro=${distro} --weight=${Weight} --kernel-options="${options}"
     echo "done."
-    Weight=$((Weight+1))
     echo ""
 }
 
