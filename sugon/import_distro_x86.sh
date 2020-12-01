@@ -28,6 +28,11 @@ ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.ks=ftp://${FTP_AD}/tools/kicksta
 MIX_NAME="TencentMPT"
 ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz_centos7u4" "mpt_output.img"
 ImportProfile "${MIX_NAME}" "${MIX_NAME}" "intel_idle.max_cstate=1 intel_pstate=disable console=ttyS0,115200n1 console=tty0 net.ifnames=0 biosdevname=0"
+# SIMS 8 LIVEOS
+MIX_NAME="SIMS_8_LiveOS"
+ImportDistroX86_64 "${MIX_NAME}" "${MIX_NAME}" "vmlinuz" "initrd.img"
+ImportProfile "${MIX_NAME}" "${MIX_NAME}" "inst.stage2=nfs://${PXE_AD}:/install/x86_64/sims_8_liveos ip=dhcp rw text bootdev=link rd.live.check vga=791 "
+
 
 # UOS 20
 MIX_NAME="UOS20"
