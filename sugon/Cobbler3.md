@@ -26,6 +26,11 @@ https://cobbler.github.io
 
 * 安装cobbler
 
+  ```text
+  cobbler-2.8.5-0.3.el7.x86_64.rpm
+  cobbler-web-2.8.5-0.3.el7.noarch.rpm
+  ```
+  
   > yum install -y cobbler cobbler-web dhcp tftp-server pykickstart httpd xinetd
 
 * 启动服务
@@ -48,26 +53,24 @@ https://cobbler.github.io
   cobbler-3.X.zip
   ```
 
+* 镜像源更新
+  
+  > wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+
 * Python3 及依赖安装
 
   ```shell script
-  # cobbler-2.8.5-0.3.el7.x86_64.rpm
-  # cobbler-web-2.8.5-0.3.el7.noarch.rpm
-  
   yum makecache fast
   yum install epel-release
   yum makecache fast
   
-  # yum install cobbler cobbler-web dhcp tftp-server pykickstart httpd xinetd
-  # yum install cobbler cobbler-web tftp-server pykickstart httpd xinetd
-  yum install rsync net-tools epel-rpm-macros tftp-server pykickstart httpd xinetd httpd-devel libpcap-devel ncurses ncurses-devel createrepo_c dnf-plugins-core xorriso grub2-efi-x64-modules grub2-efi-aa64-modules python3 python3-devel python3-libs python3-pip python3-pyudev python3-rpm-generators python3-rpm-macros python3-setuptools python3-sphinx-common python36-dns python36-jinja2 python36-sphinx python36-distro python36-coverage python36-cheetah python36-simplejson python36-six python36-tornado python36-urllib3 python36-devel python36-libs python36-pip python36-crypto python36-PyYAML python36-requests python36-chardet python36-cheetah python36-docutils python36-future python36-idna python36-ldap3 python36-markupsafe python36-netaddr python36-pyasn1 python36-pycodestyle python36-pycurl python36-pyflakes python36-pygments python36-pysocks python36-django python36-pathspec python36-responses python36-mod_wsgi mod_wsgi
+  yum install -y gcc rsync net-tools epel-rpm-macros tftp-server pykickstart httpd xinetd httpd-devel libpcap-devel ncurses ncurses-devel createrepo_c dnf-plugins-core xorriso grub2-efi-x64-modules grub2-efi-aa64-modules python3 python3-devel python3-libs python3-pip python3-pyudev python3-rpm-generators python3-rpm-macros python3-setuptools python3-sphinx-common python36-dns python36-jinja2 python36-sphinx python36-distro python36-coverage python36-cheetah python36-simplejson python36-six python36-tornado python36-urllib3 python36-devel python36-libs python36-pip python36-crypto python36-PyYAML python36-requests python36-chardet python36-cheetah python36-docutils python36-future python36-idna python36-ldap3 python36-markupsafe python36-netaddr python36-pyasn1 python36-pycodestyle python36-pycurl python36-pyflakes python36-pygments python36-pysocks python36-django python36-pathspec python36-responses python36-mod_wsgi mod_wsgi
   
   ```
 
 * PIP3 mod_wsgi
 
   ```
-  yum install gcc
   pip3 install mod_wsgi -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
   
   # LAN - Local Area Network
@@ -89,10 +92,10 @@ https://cobbler.github.io
 
   ```shell script
   # 生成rpm
-  make rpms
+  # make rpms
   # 安装到本地，覆盖已安装文件
-  make install
-  make devinstall
+  # make install
+  # make devinstall
   
   #
   python3 setup.py install
@@ -102,6 +105,9 @@ https://cobbler.github.io
   # 系统服务
   cp /etc/cobbler/cobblerd.service /etc/systemd/system/
   systemctl enable cobblerd.service
+  systemctl restart cobblerd.service
+  systemctl enable httpd.service
+  systemctl restart httpd.service
   
   # 手动运行
   /usr/local/bin/cobblerd -B
@@ -123,11 +129,9 @@ https://cobbler.github.io
 
 * Apache配置
 
-  >  systemctl enable httpd.service
-  >
-  >  systemctl restart httpd.service
-  >
-  >  systemctl restart cobblerd.service
+  ```text
+
+  ```
 
 
 
