@@ -4,7 +4,7 @@
 # arch options:
 #   x86_64
 #   aarch64
-#   mips64el
+#   mips64le
 #
 
 # $1    src path        /install/tftpboot/centos7u6_x86_64 (sync from [ftp.sims.com]/var/ftp/install/tftpboot)
@@ -116,9 +116,9 @@ Weight=2000
 BaseDir="/install/tftpboot/ft"
 source ./import_distro_arm.sh
 
-## MIPS64EL
+## MIPS64LE
 Weight=3000
-#BaseDir="/install/tftpboot/mips64el"
+#BaseDir="/install/tftpboot/mips64le"
 BaseDir="/install/tftpboot/lx"
 source ./import_distro_mips.sh
 
