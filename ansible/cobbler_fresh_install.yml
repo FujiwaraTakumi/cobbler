@@ -1,0 +1,10 @@
+- TIANJIN_PXE4
+  gather_facts: no
+
+  tasks:
+    - name: copy tarball
+      copy:
+        src=./cobbler-sims.tar.gz
+        dest=/tmp
+        mode=644
+        owner=root
